@@ -22,7 +22,7 @@ const Home = () => {
     }
     
     useEffect(()=>{
-        fetch('http://localhost:8080/cars')
+        fetch('https://car-buzz-srv.vercel.app/cars')
         .then(res => res.json())
         .then(result => {
             setCar(result)

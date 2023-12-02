@@ -26,7 +26,7 @@ const Register = () => {
         })
         .then(result => result.json())
         .then(imgData => {
-            console.log(imgData.data.url);
+            
             if(imgData.success){
 
                 const userDetails ={
@@ -41,7 +41,7 @@ const Register = () => {
                         .then(result =>{
                             const user = result.user;
 
-                            fetch('http://localhost:8080/user',{
+                            fetch('https://car-buzz-srv.vercel.app/user',{
                                 method:'POST',
                                 headers:{
                                     "content-type": "application/json"

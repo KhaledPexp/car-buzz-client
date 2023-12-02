@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { authProvider } from '../../Context/AuthContext';
-import ModalComponent from '../Shared/ModalComponent';
+
 
 const SingleCarPost = ({car, setCarID, carId, setModal}) => {
     const navigate = useNavigate();
 
     const {user} = useContext(authProvider);
-    const {carDetails, image, name, originalP, resellP, used, _id} = car;
+    const {carDetails, image, name, originalP, resellP} = car;
     
     const carSelectFun = (car)=>{
         setModal();

@@ -12,7 +12,7 @@ const DashBoard = () => {
         queryKey:['user'],
         queryFn: async()=>{
             try{
-                const res = await fetch(`http://localhost:8080/singleuser?email=${user?.email}`,{
+                const res = await fetch(`https://car-buzz-srv.vercel.app/singleuser?email=${user?.email}`,{
                     headers:{
                         authentication:`bearer ${localStorage.getItem('goldTocken')}` 
                     }

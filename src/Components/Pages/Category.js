@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { useQueryClient } from 'react-query';
+
 
 const Category = () => {
     const {register, handleSubmit, formState: { errors }}  = useForm();
@@ -20,7 +20,7 @@ const Category = () => {
         })
         .then(result => result.json())
         .then(imgData => {
-            console.log(imgData.data.url);
+            
             if(imgData.success){
                 const usedCar ={
                     carDetails: data.carDetails,
@@ -33,7 +33,7 @@ const Category = () => {
                     email: data.email,
                     brand: data.brandName,
                 }
-                fetch('http://localhost:8080/carDetails',{
+                fetch('https://car-buzz-srv.vercel.app/carDetails',{
                     method:'POST',
                     headers:{
                         "content-type": "application/json"

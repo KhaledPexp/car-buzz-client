@@ -10,10 +10,10 @@ import PrivateRaoutes from './PrivateRaoutes';
 import DashBoard from '../Components/DashBoard/DashBoard';
 import MainDashboard from '../Components/DashBoard/MainDashboard';
 import Orders from '../Components/DashBoard/Orders';
-import CheckOut from '../Components/Payment/CheckOut';
 import Payments from '../Components/Payment/Payments';
 import AllUsers from '../Components/DashBoard/AllUsers';
 import AvailableCar from '../Components/AvailableCar/AvailableCar';
+import ErrorPage from '../Components/ErrorPage/ErrorPage';
 
 const routes = createBrowserRouter([
     {
@@ -60,12 +60,12 @@ const routes = createBrowserRouter([
                     {
                         path:'/dashboard/AllUsers',
                         element:<AllUsers></AllUsers>,
-                        loader:()=>fetch('http://localhost:8080/allusers')
+                        
                     },
                     {
                         path:'/dashboard/checkout/:id',
                         element:<Payments></Payments>,
-                        loader: ({params})=> fetch(`http://localhost:8080/product/${params.id}`)
+                        loader: ({params})=> fetch(`https://car-buzz-srv.vercel.app/product/${params.id}`)
                         
                     }
                 ]
@@ -73,7 +73,10 @@ const routes = createBrowserRouter([
 
         ]
     },
-
+    {
+        path:'*',
+        element:<ErrorPage></ErrorPage>
+    }
 ]);
    
 

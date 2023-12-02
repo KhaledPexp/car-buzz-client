@@ -11,10 +11,10 @@ const CheckOut = ({product}) => {
     const [pamentId, setPaymentId] = useState("");
 
     const {price, name, email} = product;
-    // console.log(price);
+    
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:8080/create-payment-intent", {
+        fetch("https://car-buzz-srv.vercel.app/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({price}),

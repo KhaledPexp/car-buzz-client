@@ -7,11 +7,11 @@ import { useLoaderData } from 'react-router-dom';
 const pk = process.env.REACT_APP_stripeKey;
 const stripePromise = loadStripe(pk);
 
-console.log(stripePromise);
+
 
 const Payments = () => {
     const data = useLoaderData();
-    console.log(data.price);
+   
     return (
         <div className='mx-10 w-1/3'>
             <Elements stripe={stripePromise}>

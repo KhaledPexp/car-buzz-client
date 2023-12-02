@@ -23,7 +23,7 @@ const ModalComponent = ({car, setModal, modal}) => {
             meetingLocation: data.location,
             carId: _id,
         }
-        fetch('http://localhost:8080/booking',{
+        fetch('https://car-buzz-srv.vercel.app/booking',{
             method:'POST',
             headers:{
                 'content-type': 'application/json',
@@ -33,7 +33,7 @@ const ModalComponent = ({car, setModal, modal}) => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+            
             const {message} = result;
             if(result){
                 if(result.message){

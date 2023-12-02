@@ -11,7 +11,7 @@ const AvailableCar = () => {
         setModal(true)
     }
     useEffect(()=>{
-        fetch('http://localhost:8080/allCars')
+        fetch('https://car-buzz-srv.vercel.app/allCars')
         .then(res => res.json())
         .then(result => {
             setCars(result)

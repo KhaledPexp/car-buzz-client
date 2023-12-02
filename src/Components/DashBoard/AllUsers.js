@@ -5,17 +5,16 @@ import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 
 const AllUsers = () => {
-    // const data = useLoaderData();
-
+    
     const {data, isLoading, refetch} = useQuery({
         queryKey:['users'],
         queryFn: async()=>{
-            const user = await fetch('http://localhost:8080/allusers')
+            const user = await fetch('https://car-buzz-srv.vercel.app/allusers')
             const result = await user.json();
             return result;
         }
     })
-    console.log(data);
+    
     if(isLoading){
         return <Loading></Loading>
     }

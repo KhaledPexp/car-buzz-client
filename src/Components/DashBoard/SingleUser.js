@@ -4,9 +4,9 @@ import toast from 'react-hot-toast';
 const SingleUser = ({user, refetch }) => {
 const {name, email, accountType, _id} = user;
 
-console.log(_id);
+
 const handleDelete = () =>{
-    fetch(`http://localhost:8080/revmoveUser/${_id}`,{
+    fetch(`https://car-buzz-srv.vercel.app/revmoveUser/${_id}`,{
         method:'DELETE',
         headers: {
             authentication: `bearer ${localStorage.getItem('goldTocken')}`

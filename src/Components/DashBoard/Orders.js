@@ -10,7 +10,7 @@ const Orders = () => {
         queryKey:['carsData'],
         queryFn:async()=>{
             try{
-                const res = await fetch('http://localhost:8080/orders',{
+                const res = await fetch('https://car-buzz-srv.vercel.app/orders',{
                     headers:{
                         authentication:`bearer ${localStorage.getItem('goldTocken')}`
                     }
@@ -26,7 +26,7 @@ const Orders = () => {
         }
     },)
     const handleDelete = (id) =>{
-      fetch(`http://localhost:8080/removeOrder/${id}`,{
+      fetch(`https://car-buzz-srv.vercel.app/removeOrder/${id}`,{
           method:'DELETE',
           headers: {
               authentication: `bearer ${localStorage.getItem('goldTocken')}`

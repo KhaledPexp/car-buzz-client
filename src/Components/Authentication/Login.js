@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, useNavigate, useNavigation, useNavigationType } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authProvider } from '../../Context/AuthContext';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { tockenSet } from './tockenSet';
@@ -27,7 +27,7 @@ const Login = () => {
                 profilePic: user.photoURL,
                 
             }
-            fetch('http://localhost:8080/user',{
+            fetch('https://car-buzz-srv.vercel.app/user',{
                     method:'POST',
                     headers:{
                         "content-type": "application/json"
@@ -36,7 +36,7 @@ const Login = () => {
                 })
             .then(result => result.json())
             .then(data => {
-                console.log(data);
+                
                 const {result, tocken} = data;
                 if(result === email ){
                     toast.success('Successfully Logged In')
@@ -61,7 +61,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             const email = user.email;
-            console.log(user);
+            
             const userDetails ={
                 name: user.displayName,
                 email: user.email,
@@ -70,7 +70,7 @@ const Login = () => {
                 profilePic: user.photoURL,
                 
             }
-                fetch('http://localhost:8080/user',{
+                fetch('https://car-buzz-srv.vercel.app/user',{
                     method:'POST',
                     headers:{
                         "content-type": "application/json"
@@ -79,7 +79,7 @@ const Login = () => {
                 })
                 .then(result => result.json())
                 .then(data => {
-                    console.log(data);
+                    
                     const {result,tocken} = data;
                     if(result === email ){
                         toast.success('Successfully Logged In')
