@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { authProvider } from '../../Context/AuthContext';
 
 const Blog = () => {
+    const {darkTheme} = useContext(authProvider);
     return (
         <div>
             <div className='my-5 bg-[#00a5d0] text-white text-center h-24'>
@@ -16,7 +18,7 @@ const Blog = () => {
                     </div>
                     <div className='col-span-3 max-lg:col-span-3'>
                         <h1 className='font-bold text-4xl'>What are the different ways to manage a state in a React application?</h1>
-                        <div className='text-gray-600'>
+                        <div className={darkTheme? 'text-white':'text-gray-600'}>
                             <p className='py-5'>The Four Kinds of React State to Manage. There are four main types of state you need to properly manage in your React apps: 1.Local state 2.Global state 3.Server state 4.URL state</p>
                             <ol className='space-y-5'>
                                 <li>1. Local (UI) state – Local state is data we manage in one or another component. Local state is most often managed in React using the useState hook.</li>
@@ -34,7 +36,7 @@ const Blog = () => {
                     </div>
                     <div className='col-span-3'>
                         <h1 className='font-bold text-4xl'>How does prototypical inheritance work?</h1>
-                        <div className='text-gray-600'>
+                        <div className={darkTheme? 'text-white':'text-gray-600'}>
                             <p className='py-5'>Every object with its methods and properties contains an internal and hidden property known as [[Prototype]]. The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in modern language, it is being set using __proto__.</p>
                             
                         </div>
@@ -49,7 +51,7 @@ const Blog = () => {
                         <h1 className='font-bold text-4xl'>
                         What is a unit test? Why should we write unit tests?
                         </h1>
-                        <div className='text-gray-600'>
+                        <div className={darkTheme? 'text-white':'text-gray-600'}>
                             <p className='py-5'>
                             Unit testing is a type of software testing where individual units or software components are tested. Its purpose is to validate that each unit of code performs as expected. A unit can be anything you want it to be — a line of code, a method, or a class.
                             </p>
@@ -72,7 +74,7 @@ const Blog = () => {
                         <h1 className='font-bold text-4xl'>
                             React vs. Angular vs. Vue?
                         </h1>
-                        <div className='text-gray-600'>
+                        <div className={darkTheme? 'text-white':'text-gray-600'}>
                             <p className='py-5'>AngularIt was first released in 2010 and developed by Google. It is a TypeScript based JavaScript framework. After releasing several versions, now, Angular v7 is available which was released on October 2018.</p>
                             <p className='pb-5'>ReactIt was initially released in 2013 by Facebook. Besides, Facebook, it is used by Instagram and WhatsApp. The currently available version is 16.X, which was released on November 2018.</p>
                             <p className='pb-5'>VueVue is the youngest member of the group and also known as Vue.js. It was developed by an ex-Google employee Evan You in 2014. The current stable version is 2.17, which was released on August 2018. Vue's contributors are supported by Patreon.</p>

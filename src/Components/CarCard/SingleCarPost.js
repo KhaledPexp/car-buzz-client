@@ -28,7 +28,6 @@ const SingleCarPost = ({car, setCarID, carId, setModal}) => {
                 <p>{name}</p>
                 <p>Resale Price : ${resellP}</p>
                 <p>Original Price : ${originalP}</p>
-                <p>{_id}</p>
                 <div className="card-actions justify-center w-full">
                 <label htmlFor='carBookModal'  onClick={()=>carSelectFun(car)} className="btn bg-[#00a5d0] mt-5 hover:bg-[#51bad4] text-white shadow-sm border-none w-full">Book Now</label>
                 

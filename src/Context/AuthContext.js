@@ -10,10 +10,13 @@ export const authProvider = createContext(null);
 const AuthContext = ({children}) => {
     const [user, setUser] = useState(null);
     const[loader, setLoader] = useState(true);
+    const[darkTheme, setDark] = useState(false)
     const handleGoogleSignIn = (provider) =>{
         return signInWithPopup(auth, provider);
     }
-
+    const handleTheme = () =>{
+        setDark(!darkTheme);
+    }
     const handleRegisterWithEmail = (email, password) =>{
        return createUserWithEmailAndPassword (auth, email, password);
     }
@@ -43,6 +46,8 @@ const AuthContext = ({children}) => {
         handleRegisterWithEmail,
         handleSignInWithEmail,
         logOut,
+        handleTheme,
+        darkTheme,
     }
     return (
         <div>

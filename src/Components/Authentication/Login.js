@@ -16,11 +16,16 @@ const Login = () => {
     const handleLogin = data =>{
        const email = data.email;
        const password = data.password;
+
         handleSignInWithEmail(email, password)
         .then(result =>{
             const user = result.user;
             const userDetails = {
-                email: user.email
+                name: user.displayName,
+                email: user.email,
+                accountType: 'Buyer',
+                profilePic: user.photoURL,
+                
             }
             fetch('http://localhost:8080/user',{
                     method:'POST',
@@ -98,7 +103,7 @@ const Login = () => {
         user?.uid? nevigate('/', {replace:true}):
         <div className='flex justify-center mt-10'>
 
-                <div className='container-layout py-16 w-1/3'>
+                <div className='container-layout py-16 w-1/3 max-sm:w-3/4 max-lg:w-2/3'>
                 <div className=' border p-8 shadow-md'>
                     <h3 className='text-xl font-semibold pb-8'>Login Here</h3>
                     <form onSubmit={handleSubmit(handleLogin)}>

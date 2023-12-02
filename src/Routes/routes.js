@@ -10,6 +10,10 @@ import PrivateRaoutes from './PrivateRaoutes';
 import DashBoard from '../Components/DashBoard/DashBoard';
 import MainDashboard from '../Components/DashBoard/MainDashboard';
 import Orders from '../Components/DashBoard/Orders';
+import CheckOut from '../Components/Payment/CheckOut';
+import Payments from '../Components/Payment/Payments';
+import AllUsers from '../Components/DashBoard/AllUsers';
+import AvailableCar from '../Components/AvailableCar/AvailableCar';
 
 const routes = createBrowserRouter([
     {
@@ -21,7 +25,11 @@ const routes = createBrowserRouter([
                 element:<Home></Home>
             },
             {
-                path:'/category',
+                path:'/available',
+                element:<AvailableCar></AvailableCar>
+            },
+            {
+                path:'/newPost',
                 element:<Category></Category>
             },
             {
@@ -46,7 +54,19 @@ const routes = createBrowserRouter([
                     },
                     {
                         path:'/dashboard/orders',
-                        element:<Orders></Orders>
+                        element:<Orders></Orders>,
+                        
+                    },
+                    {
+                        path:'/dashboard/AllUsers',
+                        element:<AllUsers></AllUsers>,
+                        loader:()=>fetch('http://localhost:8080/allusers')
+                    },
+                    {
+                        path:'/dashboard/checkout/:id',
+                        element:<Payments></Payments>,
+                        loader: ({params})=> fetch(`http://localhost:8080/product/${params.id}`)
+                        
                     }
                 ]
             }
