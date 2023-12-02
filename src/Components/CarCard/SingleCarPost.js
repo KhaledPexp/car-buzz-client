@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authProvider } from '../../Context/AuthContext';
 import ModalComponent from '../Shared/ModalComponent';
 
-const SingleCarPost = ({car, setCarID, carId}) => {
+const SingleCarPost = ({car, setCarID, carId, setModal}) => {
     const navigate = useNavigate();
-    const [modal, setModal] = useState(false);
+
     const {user} = useContext(authProvider);
     const {carDetails, image, name, originalP, resellP, used, _id} = car;
     
     const carSelectFun = (car)=>{
-        setModal(true);
+        setModal();
         if(user){
             
             return setCarID(car)
@@ -33,15 +33,10 @@ const SingleCarPost = ({car, setCarID, carId}) => {
                 <label htmlFor='carBookModal'  onClick={()=>carSelectFun(car)} className="btn bg-[#00a5d0] mt-5 hover:bg-[#51bad4] text-white shadow-sm border-none w-full">Book Now</label>
                 
                 </div> 
-                <div>
-                    {
-                        carId && <ModalComponent car = {carId} modal={modal} setModal={setModal} ></ModalComponent>
-                    }
-                </div>
+                
             </div>
             
             </div>
-            
         </div>
     );
 };

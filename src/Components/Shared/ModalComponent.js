@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Navigate, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
+
 const ModalComponent = ({car, setModal, modal}) => {
     const nevigate = useNavigate()
     const {carDetails, image, name, originalP, resellP, used, _id} = car;
@@ -51,33 +52,38 @@ const ModalComponent = ({car, setModal, modal}) => {
     }
 
     return (
-        <div className='z-20 relative w-screen h-screen'>
-        <input type="checkbox" id="carBookModal" className=" hidden" />
         
-        <div className={modal? 'block relative ':'hidden' }id='carBookModal' >
-            <div className='flex justify-center items-center'>
-            <div className="modal-box absolute z-50 top-0 left-0 w-screen" >
-                <h3 className="font-bold text-2xl">{carDetails}</h3>
-                <div className='flex justify-between'>
-                    <p className="text-lg my-4 font-semibold text-primary">Resale Price: ${resellP}</p>
-                    <p className="text-lg my-4 font-semibold">Original Price: ${originalP}</p>
-                </div>
+        <>
+        <input type="checkbox" id="carBookModal" className=" hidden" />
+        <div className='flex justify-center items-center w-full'>
+            <div className={modal? 'flex justify-center w-full z-40 ':'hidden' }id='carBookModal'>
+                <div className="w-1/3 h-auto bg-white px-5 pb-5 rounded absolute top-1/2 z-50 " >
+                    <div className='w-full flex justify-end items-center mb-5'>
+                    <button id='carBookModal' onClick={modalsetfun} className='text-center mt-5'>X</button>
+                    </div>
+                    <h3 className="font-bold text-2xl">{carDetails}</h3>
+                    <div className='flex justify-between'>
+                        <p className="text-lg my-4 font-semibold text-primary">Resale Price: ${resellP}</p>
+                        <p className="text-lg my-4 font-semibold">Original Price: ${originalP}</p>
+                    </div>
 
-                <form onSubmit={handleSubmit(handleBooking)}>
-                    <input type="text" defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered w-full" disabled />
-                    <input type="text"  defaultValue={user?.email} placeholder="Type here" className="input input-bordered w-full mt-4" disabled />
-                    <input type="number" {...register('phone', {required:true})} name='phone' placeholder="You Phone Number" className="input input-bordered w-full mt-4" />
-                    <input type="text" {...register('location', {required:true})} name='location' placeholder="Meeting Location" className="input input-bordered w-full mt-4" />
+                    <form onSubmit={handleSubmit(handleBooking)}>
+                        <input type="text" defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered w-full" disabled />
+                        <input type="text"  defaultValue={user?.email} placeholder="Type here" className="input input-bordered w-full mt-4" disabled />
+                        <input type="number" {...register('phone', {required:true})} name='phone' placeholder="You Phone Number" className="input input-bordered w-full mt-4" />
+                        <input type="text" {...register('location', {required:true})} name='location' placeholder="Meeting Location" className="input input-bordered w-full mt-4" />
+                        
+                        <input type="submit" value="Submit" className='w-full btn mt-6' />
+                    </form>
                     
-                    <input type="submit" value="Submit" className='w-full btn mt-6' />
-                </form>
-                <button id='carBookModal' onClick={modalsetfun} className='text-black'>close</button>
-            </div>
+                </div>
             </div>
             
         </div>
         
-    </div>
+        </>
+        
+    
     );
 };
 

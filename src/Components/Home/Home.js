@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import toast from 'react-hot-toast';
 import ModalComponent from '../Shared/ModalComponent';
+import "./modal.css"
 
 
 const Home = () => {
@@ -15,6 +16,10 @@ const Home = () => {
     const [usedcar, setCar] = useState([])
     const [carId, setCarID] = useState(null)
     const [modal, setModal] = useState(false);
+
+    const handleModal = ()=>{
+        setModal(true)
+    }
     
     useEffect(()=>{
         fetch('http://localhost:8080/cars')
@@ -36,7 +41,7 @@ const Home = () => {
         url = '/media/bnner/2.jpg'
     }
     return (
-        <div className='my-5'>
+        <div className='my-5 relative'>
             <div className='banner relative h-1/3'>
                 <img className='w-full h-auto' src={url} alt="" />
                 <div className='bg-black absolute top-0 z-30 w-full h-full opacity-30'></div>
@@ -79,7 +84,7 @@ const Home = () => {
                         usedcar?.map(car => <SingleCarPost
                             key={car._id}
                             car={car}
-                            setModal={setModal}
+                            setModal={handleModal}
                             modal={modal}
                             carId={carId}
                             setCarID = {setCarID}
@@ -88,12 +93,13 @@ const Home = () => {
                         
                     }   
                 </div>
-                <div>
+                
+            </div>
+            <div className={modal?'absolute mx-0 top-0 h-screen w-screen customModal':'hidden'}>
                     {
                         carId && <ModalComponent car = {carId} modal={modal} setModal={setModal} ></ModalComponent>
                     }
                 </div>
-            </div>
             <div>
             
             </div>
