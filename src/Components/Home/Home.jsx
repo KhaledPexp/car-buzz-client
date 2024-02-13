@@ -49,7 +49,7 @@ const Home = () => {
                     <div className='absolute z-50 lg:top-1/3 sm:top-2 md:top-5 text-white text-center'>
                         <h1 className='text-6xl font-bold mx-lg:text-4xl'>FIND THE RIGHT CAR FOR YOU.</h1>
                         <p className='text-xl font-semibold mt-5'>We have more than a thousands of used cars for you to choose.</p>
-                        <button className='btn bg-[#00a5d0] mt-5 hover:bg-[#5ebed6] text-white'>See All Cars</button>
+                        <Link to='/available'><button className='btn bg-[#00a5d0] mt-5 hover:bg-[#5ebed6] text-white'>See All Cars</button></Link>
                     </div>
                 </div>
             </div>
@@ -107,10 +107,10 @@ const Home = () => {
                         <div className='text-white absolute lg:top-0 z-20 lg:w-1/2 text-center px-7 py-6 max-sm:top-1 sm:w-full max-sm:w-full sm:top-1'>
                             <p className='font-semibold mb-5'>CONTACT US</p>
                             <h1 className='text-3xl font-bold mb-5 max-sm:hidden sm:text-xl'>Contact With Us for Better Deal!</h1>
-                            <form className='leading-10'>
+                            <form className='leading-10 text-black'>
                                 <input className='p-2 block w-full my-3 rounded-md' type="email" placeholder='Email' />
                                 <input className='p-2 block w-full rounded-md' type="text" placeholder='Subject' />
-                                <textarea className='p-2 block w-full my-3 rounded-md text-gray-400' defaultValue='Write about your car details' cols="30" rows="2"></textarea>
+                                <textarea className='p-2 block w-full my-3 rounded-md' placeholder='Write about your car details' cols="30" rows="2"></textarea>
                                 <button className='btn mt-2 px-20 border-none bg-[#00a5d0] hover:bg-[#5ebed6] text-white'>Submit</button>
                             </form>
                         </div>
